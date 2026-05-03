@@ -1,6 +1,35 @@
 # steam-achievement-hunter-rag
 
-How to run the project
-1. python -m venv venv (if you don't have the venv folder only. If you have it, start from step 2)
-2. venv\Scripts\activate
-3. python steam_api.py (python <file name>)
+# How to Run the Project
+
+### 1. Create the virtual environment (first time only)
+
+```powershell
+python -m venv venv
+```
+
+### 2. Activate the virtual environment
+
+```powershell
+venv\Scripts\activate
+```
+
+### 3. Install dependencies
+
+```powershell
+pip install -r requirements.txt
+```
+
+### 4. Run the project
+
+```powershell
+python steam_api.py
+```
+
+---
+
+# Notes
+
+* If `venv` already exists, skip Step 1.
+* Always activate the virtual environment before running the project.
+* Replace `steam_api.py` with your actual entry-point file if needed.
