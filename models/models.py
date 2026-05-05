@@ -49,3 +49,27 @@ class GameSchema(BaseModel):
 
 class GameSchemaResponse(BaseModel):
     game: GameSchema
+
+# -----------------------------
+# Owned Games Models
+# -----------------------------
+
+class OwnedGame(BaseModel):
+    appid: int
+    name: Optional[str] = None
+    playtime_forever: int
+    img_icon_url: Optional[str] = None
+    has_community_visible_stats: Optional[bool] = None
+    playtime_windows_forever: Optional[int] = None
+    playtime_mac_forever: Optional[int] = None
+    playtime_linux_forever: Optional[int] = None
+    rtime_last_played: Optional[int] = None
+
+
+class OwnedGames(BaseModel):
+    game_count: int
+    games: List[OwnedGame]
+
+
+class OwnedGamesResponse(BaseModel):
+    response: OwnedGames

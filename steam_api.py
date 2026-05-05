@@ -1,4 +1,4 @@
-from models.models import PlayerAchievementsResponse, GameSchemaResponse
+from models.models import PlayerAchievementsResponse, GameSchemaResponse, OwnedGamesResponse
 import requests
 from settings import STEAM_API_KEY, STEAM_ID
 
@@ -20,6 +20,17 @@ def get_player_achievements(app_id: int) -> PlayerAchievementsResponse:
     }
     response = requests.get(url, params=params)
     return PlayerAchievementsResponse(**response.json())
+
+def get_owned_games() -> OwnedGamesResponse:
+    url = "https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/"
+    params = {
+        "key": STEAM_API_KEY,
+        "steamid": STEAM_ID,
+        "include_appinfo": True,
+        "include_played_free_games": True
+    }
+    response = requests.get(url, params=params)
+    return OwnedGamesResponse(**response.json())
     
 # Test block
 # app_id = 1903340
