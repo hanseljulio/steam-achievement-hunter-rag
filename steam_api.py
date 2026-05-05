@@ -41,7 +41,7 @@ def get_global_achievement_percentages_for_app(game_id: int) -> GlobalAchievemen
     return GlobalAchievementPercentagesResponse(**response.json())
     
 # Test block
-# app_id = 1903340
+app_id = 1903340
 
 # print("=== Game Schema ===")
 # schema = get_schema_for_game(app_id)
@@ -50,3 +50,17 @@ def get_global_achievement_percentages_for_app(game_id: int) -> GlobalAchievemen
 # print("\n=== Player Achievements ===")
 # achievements = get_player_achievements(app_id)
 # print(achievements.model_dump_json(indent=4))
+
+print("\n=== Owned Games ===")
+try:
+    owned_games = get_owned_games()
+    print(owned_games.model_dump_json(indent=4))
+except Exception as e:
+    print(f"Error fetching owned games: {e}")
+
+print("\n=== Global Achievement Percentages ===")
+try:
+    global_percentages = get_global_achievement_percentages_for_app(app_id)
+    print(global_percentages.model_dump_json(indent=4))
+except Exception as e:
+    print(f"Error fetching global percentages: {e}")
