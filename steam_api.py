@@ -1,4 +1,4 @@
-from models.models import PlayerAchievementsResponse, GameSchemaResponse, OwnedGamesResponse
+from models.models import PlayerAchievementsResponse, GameSchemaResponse, OwnedGamesResponse, GlobalAchievementPercentagesResponse
 import requests
 from settings import STEAM_API_KEY, STEAM_ID
 
@@ -31,6 +31,14 @@ def get_owned_games() -> OwnedGamesResponse:
     }
     response = requests.get(url, params=params)
     return OwnedGamesResponse(**response.json())
+
+def get_global_achievement_percentages_for_app(game_id: int) -> GlobalAchievementPercentagesResponse:
+    url = "https://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/"
+    params = {
+        "gameid": game_id
+    }
+    response = requests.get(url, params=params)
+    return GlobalAchievementPercentagesResponse(**response.json())
     
 # Test block
 # app_id = 1903340

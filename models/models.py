@@ -73,3 +73,17 @@ class OwnedGames(BaseModel):
 
 class OwnedGamesResponse(BaseModel):
     response: OwnedGames
+
+# -----------------------------
+# Global Achievement Percentages Models
+# -----------------------------
+
+class GlobalAchievementPercentage(BaseModel):
+    name: str
+    percent: float
+
+class GlobalAchievementPercentages(BaseModel):
+    achievements: List[GlobalAchievementPercentage]
+
+class GlobalAchievementPercentagesResponse(BaseModel):
+    achievementpercentages: GlobalAchievementPercentages
